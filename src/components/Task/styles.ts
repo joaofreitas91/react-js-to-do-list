@@ -21,8 +21,10 @@ export const CheckboxContainer = styled('div', {
   height: '16px',
 });
 
-export const InputRadio = styled('input', {
+export const InputCheckbox = styled('input', {
   appearance: 'none',
+
+  cursor: 'pointer',
 
   borderRadius: '50%',
   width: '16px',
@@ -59,6 +61,8 @@ export const InputRadio = styled('input', {
 export const TextTask = styled('span', {
   fontSize: '0.875rem',
   lineHeight: '1.25rem',
+  textAlign: 'start',
+  flex: '1',
 
   display: 'inline-block',
 

@@ -2,15 +2,21 @@ import { useState } from 'react';
 
 import { Trash } from 'phosphor-react';
 
+import { TypeTask } from '../ToDoList';
+
 import {
   CheckboxContainer,
   DeleteButton,
-  InputRadio,
+  InputCheckbox,
   MainContainer,
   TextTask,
 } from './styles';
 
-export const Task = () => {
+interface TypeProps {
+  data: TypeTask
+}
+
+export const Task = ({ data }: TypeProps) => {
   const [isChecked, setIsChecked] = useState(false);
 
   function handleChange() {
@@ -19,11 +25,10 @@ export const Task = () => {
   return (
     <MainContainer>
       <CheckboxContainer>
-        <InputRadio type="checkbox" onChange={handleChange} />
+        <InputCheckbox type="checkbox" onChange={handleChange} />
       </CheckboxContainer>
       <TextTask Text={isChecked ? 'sublinhado' : 'normal'}>
-        Integer urna interdum massa libero auctor neque turpis turpis semper.
-        Duis vel sed fames integer.
+        {data.content}
       </TextTask>
       <DeleteButton>
         <Trash />
