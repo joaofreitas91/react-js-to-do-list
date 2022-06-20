@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 
 import { v4 as uuidv4 } from 'uuid';
 
@@ -36,7 +36,24 @@ export const TodoList = () => {
 
   const finishedTasks = tasksList.reduce((acc, e) => (e.finished ? acc + 1 : acc), 0);
 
-  function handleChange(event: ChangeEvent<HTMLInputElement>) {
+  function getTasksFromLocalStorage() {
+    const storage: string | null = window.localStorage.getItem('taskList');
+
+    if (storage) {
+      const parseStorage: TypeTask[] = JSON.parse(storage);
+      setTasksList(parseStorage);
+    }
+  }
+
+  function setTasksForLocalStorage(arr: TypeTask[]) {
+    window.localStorage.setItem('taskList', JSON.stringify(arr));
+  }
+
+  useEffect(() => {
+    getTasksFromLocalStorage();
+  }, []);
+
+  function handleTaskTyping(event: ChangeEvent<HTMLInputElement>) {
     const { value } = event.target;
     setTaskDescription(value);
   }
@@ -50,7 +67,12 @@ export const TodoList = () => {
       finished: false,
     };
 
-    setTasksList(((previousList) => [...previousList, newTask]));
+    setTasksList(((previousList) => {
+      const newList = [...previousList, newTask];
+      setTasksForLocalStorage(newList);
+
+      return newList;
+    }));
 
     setTaskDescription('');
   }
@@ -60,7 +82,7 @@ export const TodoList = () => {
       <ContainerInputTask>
         <InputTask
           placeholder="Descrição da tarefa"
-          onChange={handleChange}
+          onChange={handleTaskTyping}
           value={taskDescription}
         />
         <ButtonSendTask onClick={handleCreateTask}>
