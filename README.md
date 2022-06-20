@@ -14,13 +14,13 @@ Desafio técnico Rocketseat, criar um app de lista de tarefas usando
 React-JS, o app tem que adicionar uma tarefa, marcar se a tarefa foi concluída,
 excluir uma tarefa, contar o total de tarefas e mostrar quantas foram concluídas.
 
-Template gerado com o vite, código em Typescript e estilização com CSS.
+Template gerado com o vite, código em Typescript e estilização com Stitches CSS.
 
 <h1 id='tech'>Tecnologias</h1>
 
 - React JS
 - Typescript
-- CSS
+- Stitches CSS
 - Eslint
 
 <h1 id='pre'>Pré requisitos </h1>
