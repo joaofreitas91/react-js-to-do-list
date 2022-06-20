@@ -1,7 +1,10 @@
-import { Container } from './styles';
+import { Container, ImageContainer } from './styles';
+import Logo from '../../assets/logo.svg';
 
 export const Header = () => (
   <Container>
-    Hello World
+    <ImageContainer>
+      <img src={Logo} alt="logo" />
+    </ImageContainer>
   </Container>
 );

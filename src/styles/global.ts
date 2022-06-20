@@ -9,7 +9,24 @@ export const globalStyles = globalCss({
   },
 
   body: {
-    backgroundColor: '$gray500',
+    backgroundColor: '$gray600',
     fontFamily: 'Inter, sans-serif',
+    fontSize: '1rem',
   },
+
+  img: {
+    display: 'block',
+    width: '100%',
+  },
+
+  button: {
+    fontFamily: 'Inter, sans-serif',
+    fontWeight: 'bold',
+  },
+
+  input: {
+    fontFamily: 'Inter, sans-serif',
+    fontWeight: 'bold',
+  },
+
 });
