@@ -16,6 +16,8 @@ excluir uma tarefa, contar o total de tarefas e mostrar quantas foram concluída
 
 Template gerado com o vite, código em Typescript e estilização com Stitches CSS.
 
+Visite o meu projeto clicando [AQUI](react-js-to-do-list-xi.vercel.app)
+
 <h1 id='tech'>Tecnologias</h1>
 
 - React JS
