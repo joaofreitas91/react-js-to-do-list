@@ -2,6 +2,7 @@ import { globalStyles } from '../../styles/global';
 import { Container } from './styles';
 
 import { Header } from '../Header';
+import { TodoList } from '../ToDoList';
 
 const App = () => {
   globalStyles();
@@ -9,6 +10,7 @@ const App = () => {
   return (
     <Container>
       <Header />
+      <TodoList />
     </Container>
   );
 };

@@ -10,6 +10,7 @@ export const globalStyles = globalCss({
 
   body: {
     backgroundColor: '$gray600',
+    color: '$gray100',
     fontFamily: 'Inter, sans-serif',
     fontSize: '1rem',
   },
@@ -22,11 +23,12 @@ export const globalStyles = globalCss({
   button: {
     fontFamily: 'Inter, sans-serif',
     fontWeight: 'bold',
+    color: '$gray100',
   },
 
   input: {
     fontFamily: 'Inter, sans-serif',
     fontWeight: 'bold',
+    color: '$gray100',
   },
-
 });
