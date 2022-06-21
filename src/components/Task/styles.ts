@@ -36,7 +36,7 @@ export const InputCheckbox = styled('input', {
   marginRight: '5px',
 
   position: 'relative',
-  top: '4px',
+  top: '2px',
 
   display: 'flex',
   justifyContent: 'center',
@@ -62,6 +62,9 @@ export const TextTask = styled('span', {
   fontSize: '0.875rem',
   lineHeight: '1.25rem',
   textAlign: 'start',
+  textOverflow: 'ellipsis',
+  overflow: 'hidden',
+  width: '50px',
   flex: '1',
 
   display: 'inline-block',

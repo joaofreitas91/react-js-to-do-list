@@ -15,26 +15,24 @@ import {
 interface TypeProps {
   data: TypeTask
   onRemoveTask: (id: string) => void
+  onFinishTask: (id: string) => void
 }
 
-export const Task = ({ data, onRemoveTask }: TypeProps) => {
-  const [isChecked, setIsChecked] = useState(false);
-
-  function handleChange() {
-    setIsChecked(!isChecked);
+export const Task = ({ data, onRemoveTask, onFinishTask }: TypeProps) => {
+  function handleFinishTask() {
+    onFinishTask(data.id);
   }
 
   function handleRemoveTask() {
-    const uuid = data.id;
-    onRemoveTask(uuid);
+    onRemoveTask(data.id);
   }
 
   return (
     <MainContainer>
       <CheckboxContainer>
-        <InputCheckbox type="checkbox" onChange={handleChange} />
+        <InputCheckbox type="checkbox" onChange={handleFinishTask} checked={data.finished} />
       </CheckboxContainer>
-      <TextTask Text={isChecked ? 'sublinhado' : 'normal'}>
+      <TextTask Text={data.finished ? 'sublinhado' : 'normal'}>
         {data.content}
       </TextTask>
       <DeleteButton onClick={handleRemoveTask}>

@@ -24,8 +24,6 @@ import {
   TasksListContainer,
 } from './styles';
 
-const hasTasks = true;
-
 export interface TypeTask {
   id: string
   content: string
@@ -87,6 +85,15 @@ export const TodoList = () => {
     setTasksForLocalStorage(listWithoutTask);
   }
 
+  function finishTask(uuidTask: string) {
+    const listWithoutTask: TypeTask[] = tasksList.map((task) => (task.id === uuidTask
+      ? { ...task, finished: !task.finished }
+      : task));
+
+    setTasksList(listWithoutTask);
+    setTasksForLocalStorage(listWithoutTask);
+  }
+
   return (
     <MainContainer>
       <FormInputTask onSubmit={handleCreateTask}>
@@ -112,6 +119,7 @@ export const TodoList = () => {
                 key={task.id}
                 data={task}
                 onRemoveTask={removeTask}
+                onFinishTask={finishTask}
               />
             ))}
           </TasksListContainer>
