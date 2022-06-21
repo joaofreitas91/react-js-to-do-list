@@ -81,6 +81,12 @@ export const TodoList = () => {
     setTaskDescription('');
   }
 
+  function removeTask(uuidTask: string) {
+    const listWithoutTask: TypeTask[] = tasksList.filter((task) => task.id !== uuidTask);
+    setTasksList(listWithoutTask);
+    setTasksForLocalStorage(listWithoutTask);
+  }
+
   return (
     <MainContainer>
       <FormInputTask onSubmit={handleCreateTask}>
@@ -101,7 +107,13 @@ export const TodoList = () => {
         </HeaderTasks>
         {tasksList.length > 0 ? (
           <TasksListContainer>
-            {tasksList.map((task) => <Task key={task.id} data={task} />)}
+            {tasksList.map((task) => (
+              <Task
+                key={task.id}
+                data={task}
+                onRemoveTask={removeTask}
+              />
+            ))}
           </TasksListContainer>
         ) : (
           <TasksListContainer>

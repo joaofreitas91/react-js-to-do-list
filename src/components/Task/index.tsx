@@ -14,14 +14,21 @@ import {
 
 interface TypeProps {
   data: TypeTask
+  onRemoveTask: (id: string) => void
 }
 
-export const Task = ({ data }: TypeProps) => {
+export const Task = ({ data, onRemoveTask }: TypeProps) => {
   const [isChecked, setIsChecked] = useState(false);
 
   function handleChange() {
     setIsChecked(!isChecked);
   }
+
+  function handleRemoveTask() {
+    const uuid = data.id;
+    onRemoveTask(uuid);
+  }
+
   return (
     <MainContainer>
       <CheckboxContainer>
@@ -30,7 +37,7 @@ export const Task = ({ data }: TypeProps) => {
       <TextTask Text={isChecked ? 'sublinhado' : 'normal'}>
         {data.content}
       </TextTask>
-      <DeleteButton>
+      <DeleteButton onClick={handleRemoveTask}>
         <Trash />
       </DeleteButton>
     </MainContainer>

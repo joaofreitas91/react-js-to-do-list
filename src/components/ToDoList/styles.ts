@@ -5,6 +5,7 @@ export const MainContainer = styled('div', {
   width: '100%',
 
   marginTop: '-1.7rem',
+  padding: '0 .7rem',
 });
 
 export const FormInputTask = styled('form', {
