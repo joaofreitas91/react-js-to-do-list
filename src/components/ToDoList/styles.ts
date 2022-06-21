@@ -7,7 +7,7 @@ export const MainContainer = styled('div', {
   marginTop: '-1.7rem',
 });
 
-export const ContainerInputTask = styled('div', {
+export const FormInputTask = styled('form', {
   width: '100%',
 
   display: 'flex',
@@ -32,6 +32,8 @@ export const InputTask = styled('input', {
 });
 
 export const ButtonSendTask = styled('button', {
+  cursor: 'pointer',
+
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -46,6 +48,16 @@ export const ButtonSendTask = styled('button', {
   borderRadius: '8px',
 
   backgroundColor: '$blueDark',
+
+  '&:hover': {
+    backgroundColor: '$blue',
+  },
+
+  '&:disabled': {
+    cursor: 'not-allowed',
+    backgroundColor: '$blueDark',
+    opacity: '0.7',
+  },
 });
 
 export const TasksContainer = styled('div', {

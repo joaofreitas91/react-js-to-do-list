@@ -1,4 +1,6 @@
-import { ChangeEvent, useEffect, useState } from 'react';
+import {
+  ChangeEvent, FormEvent, useEffect, useState,
+} from 'react';
 
 import { v4 as uuidv4 } from 'uuid';
 
@@ -9,7 +11,7 @@ import { Task } from '../Task';
 
 import {
   ButtonSendTask,
-  ContainerInputTask,
+  FormInputTask,
   HeaderTasks,
   InputTask,
   MainContainer,
@@ -58,7 +60,9 @@ export const TodoList = () => {
     setTaskDescription(value);
   }
 
-  function handleCreateTask() {
+  function handleCreateTask(event: FormEvent) {
+    event.preventDefault();
+
     const uuid = uuidv4();
 
     const newTask = {
@@ -79,17 +83,17 @@ export const TodoList = () => {
 
   return (
     <MainContainer>
-      <ContainerInputTask>
+      <FormInputTask onSubmit={handleCreateTask}>
         <InputTask
           placeholder="Descrição da tarefa"
           onChange={handleTaskTyping}
           value={taskDescription}
         />
-        <ButtonSendTask onClick={handleCreateTask}>
+        <ButtonSendTask type="submit" disabled={taskDescription.length === 0}>
           Criar
           <PlusCircle size={16} weight="bold" />
         </ButtonSendTask>
-      </ContainerInputTask>
+      </FormInputTask>
       <TasksContainer>
         <HeaderTasks>
           <TasksDescription color="blue">Tarefas criadas <TasksCounter>{tasksList.length}</TasksCounter></TasksDescription>
